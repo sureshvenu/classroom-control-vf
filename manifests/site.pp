@@ -43,20 +43,5 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname} and this is Bisi bele bath": }
-  
-  #file {'/etc/motd':
-  #ensure => file,
-  #owner => "root",
-  #group => "root",
-  #mode =>  "0644",
-  #content => 'We learn Puppet and we are experts from this moment forward \n ', }
-  
-  exec  { 'idempotency in exec':
-          path    =>  '/usr/local/bin/',
-          command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-          creates =>  "/etc/motd",
-        }
-        
-        include users
-        include skeleton
+
 }
