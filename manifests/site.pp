@@ -44,12 +44,12 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname} and this is Bisi bele bath": }
   
-  file {'/etc/motd':
-  ensure => file,
-  owner => "root",
-  group => "root",
-  mode =>  "0644",
-  content => 'We learn Puppet and we are experts from this moment forward \n ', }
+  #file {'/etc/motd':
+  #ensure => file,
+  #owner => "root",
+  #group => "root",
+  #mode =>  "0644",
+  #content => 'We learn Puppet and we are experts from this moment forward \n ', }
   
   exec  { 'idempotency in exec':
           command => "cowsay Welcome to ${::fqdn}!' > /etc/motd",
