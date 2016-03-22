@@ -56,4 +56,6 @@ node default {
           command => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
           creates =>  "/etc/motd",
         }
+        
+        include users
 }
