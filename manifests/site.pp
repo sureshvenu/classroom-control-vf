@@ -45,7 +45,7 @@ node default {
   notify { "Hello, my name is ${::hostname} and this is Bisi bele bath": }
 
       if $is_virtual {
-        notify("This is a VM and the os is $operatingsystem")
+        notify {"This is a VM and the os is $operatingsystem":}
       }
 
 }
