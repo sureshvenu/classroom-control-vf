@@ -1,5 +1,25 @@
 class nginx {
 
+   case $::osfamily{
+            'RedHat' :{
+                     $confdir = '/etc/nginx'
+                     $logdir  = '/var/log/nginx'
+                     $nginxrunasuser   = 'nginx'
+               }
+               'debian' :{
+               $confdir = '/etc/nginx'
+                     $logdir  = '/var/log/nginx'
+                     $nginxrunasuser   = 'www-data'
+               }
+               'windows' :{
+                     $confdir = 'C:/ProgramData/nginx/html'
+                     $logdir  = 'C:/ProgramData/nginx/logs'
+                     $nginxrunasuser   = 'nobody'
+               }
+               'default' :{
+                     fail("Unsupported OS nginx install config failed on ${::osfamily}")
+               }
+   }
    File {
     owner => 'root',
     group => 'root',
