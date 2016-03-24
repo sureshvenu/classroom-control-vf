@@ -43,7 +43,7 @@ class nginx {
   # package nginx
   package {'nginx': 
     ensure => present,
-    name => ${package_name},
+    name => $package_name,
   }
   
   # document root /var/www
