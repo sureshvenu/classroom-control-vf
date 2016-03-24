@@ -42,8 +42,9 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  notify { "Hello, my name is ${::hostname} and this is Bisi bele bath": }
-
+  #notify { "Hello, my name is ${::hostname} and this is Bisi bele bath": }
+    $message_val= hiera('message')
+    notify { $message_val :}
       if $::is_virtual {
         notify {"This is a VM and the os is $::operatingsystem and the virtual type is $::virtual":}
       }
