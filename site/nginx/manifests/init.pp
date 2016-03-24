@@ -47,7 +47,7 @@ class nginx {
   }
   
   # document root /var/www
-  file {${docroot}:
+  file {$docroot:
     ensure => directory,
   }
   
